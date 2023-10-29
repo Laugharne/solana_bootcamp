@@ -1,4 +1,9 @@
-# [](https://youtu.be/XiA_pBftFt4?t=0)
+
+
+
+
+
+# [00:00](https://youtu.be/XiA_pBftFt4?t=0) Arbitrage Trading
 
 Section Overview: In this section, the speaker introduces the concept of arbitrage trading and its relevance in the cryptocurrency market.
 
@@ -504,30 +509,30 @@ Section Overview: In this section, the speaker discusses setting up a lookup tab
 
 ## Creating a Lookup Table and Placing Trades
 
-- A lookup table is created on devnet for arbitrage trading. (t=3350s)
-- Addresses are added to the lookup table, with a total of 44 addresses ranging from 0 to 43. (t=3350s)
-- Arbitrage trades are placed between two swap pools using the lookup table. (t=3350s)
-- The transaction size is printed out, showing a smaller number when using the lookup table compared to without it. (t=3370s)
+- A lookup table is created on devnet for arbitrage trading. ([55:50](https://youtu.be/XiA_pBftFt4?t=3350))
+- Addresses are added to the lookup table, with a total of 44 addresses ranging from 0 to 43. ([55:50](https://youtu.be/XiA_pBftFt4?t=3350))
+- Arbitrage trades are placed between two swap pools using the lookup table. ([55:50](https://youtu.be/XiA_pBftFt4?t=3350))
+- The transaction size is printed out, showing a smaller number when using the lookup table compared to without it. ([56:10](https://youtu.be/XiA_pBftFt4?t=3370))
 
 ## Benefits and Considerations
 
-- Using a lookup table helps optimize arbitrage trading by reducing transaction size. (t=3370s)
-- However, pushing the maximum size of a uint8 array can cause errors. (t=3370s)
+- Using a lookup table helps optimize arbitrage trading by reducing transaction size. ([56:10](https://youtu.be/XiA_pBftFt4?t=3370))
+- However, pushing the maximum size of a uint8 array can cause errors. ([56:10](https://youtu.be/XiA_pBftFt4?t=3370))
 
 ## Encouragement to Build Your Own Arbitrage Bot
 
-- The speaker highlights that setting up an arbitrage bot can be fun and encourages viewers to try building their own. (t=3388s)
-- Various optimizations, such as using byte marks, can be explored during the process. (t=3388s)
-- Viewers are encouraged to test their bots on Main net and see if they can make some profit. (t=3405s)
+- The speaker highlights that setting up an arbitrage bot can be fun and encourages viewers to try building their own. [(56:23)](https://youtu.be/XiA_pBftFt4?t=3388)
+- Various optimizations, such as using byte marks, can be explored during the process. [(56:23)](https://youtu.be/XiA_pBftFt4?t=3388)
+- Viewers are encouraged to test their bots on Main net and see if they can make some profit. [(56:45)](https://youtu.be/XiA_pBftFt4?t=3420)
 
-# [57:00](https://youtu.be/XiA_pBftFt4?t=3420)
+# [(57:00)](https://youtu.be/XiA_pBftFt4?t=3420)
 
 Section Overview: In this concluding section, the speaker wraps up by expressing their enjoyment in building an arbitrage bot and suggests trying it out for oneself.
 
 ## Final Thoughts
 
 - Building an arbitrage bot has been a fun experience for the speaker. (t=3405s)
-- The speaker suggests trying out the bot on Main net and seeing if it can generate some profit. (t=3420s)
-- The video concludes with a farewell message, indicating that more content will be available in the future. (t=3420s)
+- The speaker suggests trying out the bot on Main net and seeing if it can generate some profit. [(57:00)](https://youtu.be/XiA_pBftFt4?t=3420)
+- The video concludes with a farewell message, indicating that more content will be available in the future. [(57:00)](https://youtu.be/XiA_pBftFt4?t=3420)
 
 [Generated with Video Highlight](https://videohighlight.com/video/summary/XiA_pBftFt4)

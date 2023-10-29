@@ -1,4 +1,152 @@
-# [](https://youtu.be/EwaKX5YoIjk?t=0) Introduction to Working with Tokens in Solana
+
+
+<!-- TOC -->
+
+- [00:00 Introduction to Working with Tokens in Solana](#0000-introduction-to-working-with-tokens-in-solana)
+	- [Understanding Staking Programs](#understanding-staking-programs)
+	- [Designing the Stake Program](#designing-the-stake-program)
+	- [Best Practices for Account Structure](#best-practices-for-account-structure)
+- [02:37 Creating Accounts for the Stake Program](#0237-creating-accounts-for-the-stake-program)
+	- [User Accounts](#user-accounts)
+	- [Stake Program Accounts](#stake-program-accounts)
+	- [Simplifying Account Structure](#simplifying-account-structure)
+- [05:26 Summary of Required Accounts for the Stake Program](#0526-summary-of-required-accounts-for-the-stake-program)
+	- [Required Accounts](#required-accounts)
+- [07:22 Initializing the Anchor Project](#0722-initializing-the-anchor-project)
+	- [Initializing the Anchor Project](#initializing-the-anchor-project)
+- [08:06 Version Compatibility](#0806-version-compatibility)
+	- [Version Compatibility](#version-compatibility)
+- [09:10 Building and Compiling](#0910-building-and-compiling)
+	- [Building and Compiling](#building-and-compiling)
+- [09:49 Setting Up Constants](#0949-setting-up-constants)
+	- [Setting Up Constants](#setting-up-constants)
+- [11:15 Scaffolding the Program](#1115-scaffolding-the-program)
+	- [Scaffolding the Program](#scaffolding-the-program)
+- [13:08 Initializing Accounts](#1308-initializing-accounts)
+	- [Initializing Accounts](#initializing-accounts)
+- [14:33 Setting up the Lifetime Perfect](#1433-setting-up-the-lifetime-perfect)
+	- [Setting up the Account and Token Mint](#setting-up-the-account-and-token-mint)
+	- [Understanding Authority and Mint](#understanding-authority-and-mint)
+	- [Initializing Accounts](#initializing-accounts)
+- [16:48 Handling Errors in Code](#1648-handling-errors-in-code)
+	- [Running into Errors](#running-into-errors)
+	- [Fixing Errors Step by Step](#fixing-errors-step-by-step)
+- [19:36 Testing Initialization Functionality](#1936-testing-initialization-functionality)
+	- [Importance of Testing Initialization Functionality](#importance-of-testing-initialization-functionality)
+	- [Running the Test](#running-the-test)
+- [20:38 Running Solidity Test Validator](#2038-running-solidity-test-validator)
+	- [Running Solidity Test Validator](#running-solidity-test-validator)
+- [21:27 Including All Required Accounts for Transaction](#2127-including-all-required-accounts-for-transaction)
+	- [Creating Required Accounts](#creating-required-accounts)
+	- [Setting Up Dependencies](#setting-up-dependencies)
+	- [Initializing RPC Call](#initializing-rpc-call)
+	- [Creating Mint Token Account](#creating-mint-token-account)
+	- [Generating Key Pair for Mint](#generating-key-pair-for-mint)
+	- [Logging Mint Information](#logging-mint-information)
+	- [Creating Vault Account](#creating-vault-account)
+- [26:38 Creating Vault Account](#2638-creating-vault-account)
+	- [Creating Vault Account](#creating-vault-account)
+- [28:13 Setting up the PDA and initializing the token Vault](#2813-setting-up-the-pda-and-initializing-the-token-vault)
+	- [Setting up the PDA for program address sync](#setting-up-the-pda-for-program-address-sync)
+	- [Including necessary accounts](#including-necessary-accounts)
+	- [Initializing the token Vault](#initializing-the-token-vault)
+- [29:02 Creating a new set of accounts for staking](#2902-creating-a-new-set-of-accounts-for-staking)
+	- [Setting up struct for stake accounts](#setting-up-struct-for-stake-accounts)
+	- [Creating stake info account](#creating-stake-info-account)
+	- [Creating user stake account](#creating-user-stake-account)
+	- [Creating gold token account](#creating-gold-token-account)
+- [30:10 Setting up struct for stake accounts](#3010-setting-up-struct-for-stake-accounts)
+	- [Setting up struct for stake accounts](#setting-up-struct-for-stake-accounts)
+	- [Creating stake info account](#creating-stake-info-account)
+	- [Creating user stake account](#creating-user-stake-account)
+	- [Creating gold token account](#creating-gold-token-account)
+- [31:13 Adding authority and completing setup](#3113-adding-authority-and-completing-setup)
+	- [Adding authority to stake info account](#adding-authority-to-stake-info-account)
+	- [Including necessary accounts](#including-necessary-accounts)
+	- [Creating stake info account](#creating-stake-info-account)
+- [32:52 Creating user stake account and gold token account](#3252-creating-user-stake-account-and-gold-token-account)
+	- [Creating user stake account](#creating-user-stake-account)
+	- [Creating gold token account](#creating-gold-token-account)
+- [35:12 Creating Token and Stake Accounts](#3512-creating-token-and-stake-accounts)
+	- [Creating the Token Account](#creating-the-token-account)
+	- [Importing Associated Token Program](#importing-associated-token-program)
+- [37:37 Implementing Staking Logic](#3737-implementing-staking-logic)
+	- [Handling Different Scenarios](#handling-different-scenarios)
+	- [Creating Error Codes](#creating-error-codes)
+	- [Implementing Staking Logic](#implementing-staking-logic)
+- [41:12 Fixing an Issue in Stake Info Account](#4112-fixing-an-issue-in-stake-info-account)
+	- [Fixing the Issue](#fixing-the-issue)
+- [42:16 Setting up the Clock and Getting the Time](#4216-setting-up-the-clock-and-getting-the-time)
+	- [Setting Up the Clock](#setting-up-the-clock)
+	- [Retrieving Current Time](#retrieving-current-time)
+	- [Calculating Stake Amount](#calculating-stake-amount)
+	- [Transferring Tokens](#transferring-tokens)
+- [48:40 Creating Integration Test for Staking](#4840-creating-integration-test-for-staking)
+	- [Creating Integration Test Function](#creating-integration-test-function)
+	- [Including Accounts in Instruction](#including-accounts-in-instruction)
+- [50:19 Creating User Token Account and Minting Tokens](#5019-creating-user-token-account-and-minting-tokens)
+	- [Creating User Token Account](#creating-user-token-account)
+	- [Minting Tokens](#minting-tokens)
+- [52:12 Getting Stake Info Account and Stake Token Account](#5212-getting-stake-info-account-and-stake-token-account)
+	- [Getting Stake Info Account](#getting-stake-info-account)
+	- [Getting Stake Token Account](#getting-stake-token-account)
+- [53:58 Obtaining Gold Token Vault](#5358-obtaining-gold-token-vault)
+	- [Obtaining Gold Token Vault](#obtaining-gold-token-vault)
+- [56:40 Testing Stake Program](#5640-testing-stake-program)
+	- [Testing Stake Program](#testing-stake-program)
+- [57:16 Creating Accounts for D-Stake Instruction](#5716-creating-accounts-for-d-stake-instruction)
+	- [Creating Accounts for D-Stake Instruction](#creating-accounts-for-d-stake-instruction)
+- [58:15 Setting up User and Stake Accounts](#5815-setting-up-user-and-stake-accounts)
+	- [Creating User and Stake Accounts](#creating-user-and-stake-accounts)
+- [58:23 Obtaining the Vault Account](#5823-obtaining-the-vault-account)
+	- [Getting the Vault Token Account](#getting-the-vault-token-account)
+- [58:39 Removing Unnecessary Information](#5839-removing-unnecessary-information)
+	- [Removing Unused Information](#removing-unused-information)
+- [59:01 Initializing D Stake Implementation](#5901-initializing-d-stake-implementation)
+	- [Initializing D Stake Implementation](#initializing-d-stake-implementation)
+- [59:42 Checking Stake Info State](#5942-checking-stake-info-state)
+	- [Checking Stake Info State](#checking-stake-info-state)
+- [01:00:11 Calculating Slots Passed](#010011-calculating-slots-passed)
+	- [Determining Slots Passed](#determining-slots-passed)
+- [01:00:42 Retrieving Current Stake Amount](#010042-retrieving-current-stake-amount)
+	- [Getting Current Stake Amount](#getting-current-stake-amount)
+- [01:01:08 Calculating Reward](#010108-calculating-reward)
+	- [Calculating Reward](#calculating-reward)
+- [01:03:28 Performing Transfer - Vault Account](#010328-performing-transfer---vault-account)
+	- [Transferring Rewards - Vault Account](#transferring-rewards---vault-account)
+- [01:04:31 Performing Transfer - User-Owned Token Account](#010431-performing-transfer---user-owned-token-account)
+	- [Transferring Rewards - User-Owned Token Account](#transferring-rewards---user-owned-token-account)
+- [01:06:06 Token Program and Transfer](#010606-token-program-and-transfer)
+	- [Token Program and Transfer](#token-program-and-transfer)
+- [01:07:29 Additional Transfers](#010729-additional-transfers)
+	- [Additional Transfers](#additional-transfers)
+- [01:07:52 Signing for Stake Account](#010752-signing-for-stake-account)
+	- [Signing for Stake Account](#signing-for-stake-account)
+- [01:09:12 Transfer CPI Call](#010912-transfer-cpi-call)
+	- [Transfer CPI Call](#transfer-cpi-call)
+- [01:10:29 Resetting Stake Info](#011029-resetting-stake-info)
+	- [Resetting Stake Info](#resetting-stake-info)
+- [01:11:19 Error Handling and Compilation](#011119-error-handling-and-compilation)
+	- [Error Handling and Compilation](#error-handling-and-compilation)
+- [01:13:02 Testing the Code](#011302-testing-the-code)
+	- [Testing the Code](#testing-the-code)
+- [1:13:52 Removing Accounts and Calling De-stake](#11352-removing-accounts-and-calling-de-stake)
+	- [Removing Accounts and Signers](#removing-accounts-and-signers)
+	- [Filling Out Required Accounts](#filling-out-required-accounts)
+	- [Account Details](#account-details)
+	- [Purpose of Instructions](#purpose-of-instructions)
+- [1:16:28 Insufficient Funds Error Explanation](#11628-insufficient-funds-error-explanation)
+	- [Error Analysis](#error-analysis)
+	- [Cause of Insufficient Funds Error](#cause-of-insufficient-funds-error)
+	- [Fixing the Issue](#fixing-the-issue)
+- [1:18:58 Successful Test Run and Conclusion](#11858-successful-test-run-and-conclusion)
+	- [Test Results](#test-results)
+	- [Summary of Staking Program](#summary-of-staking-program)
+
+<!-- /TOC -->
+
+
+# [00:00](https://youtu.be/EwaKX5YoIjk?t=0) Introduction to Working with Tokens in Solana
 
 Section Overview: In this section, Jacob Creech introduces the topic of working with tokens in Solana and discusses the purpose of a staking program.
 
@@ -613,7 +761,7 @@ Section Overview: In this final section, the speaker discusses creating an integ
 
 - An integration test for de-staking is created.
 - The code is tested to ensure it runs without errors or warnings.
-# [t=1:13:52s] Removing Accounts and Calling De-stake
+# [1:13:52](https://youtu.be/EwaKX5YoIjk?t=4432) Removing Accounts and Calling De-stake
 
 Section Overview: In this section, the speaker discusses removing accounts and signers and focuses on calling the de-stake function.
 
@@ -644,7 +792,7 @@ Section Overview: In this section, the speaker discusses removing accounts and s
 - Additionally, tokens from the user stake account are pulled and de-staked into the gold token account.
 - Finally, the stake info should be updated accordingly.
 
-# [t=1:16:28s] Insufficient Funds Error Explanation
+# [1:16:28](https://youtu.be/EwaKX5YoIjk?t=4588) Insufficient Funds Error Explanation
 
 Section Overview: In this section, the speaker explains an error encountered during de-staking related to insufficient funds.
 
@@ -666,7 +814,7 @@ Section Overview: In this section, the speaker explains an error encountered dur
 - They demonstrate how to mint tokens using a specific weight and connection parameters.
 - The amount minted is set to 1821 as an example.
 
-# [t=1:18:58s] Successful Test Run and Conclusion
+# [1:18:58](https://youtu.be/EwaKX5YoIjk?t=4738) Successful Test Run and Conclusion
 
 Section Overview: In this final section, the speaker runs a test and concludes by summarizing their staking program.
 

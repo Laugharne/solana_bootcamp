@@ -1,4 +1,4 @@
-# [](https://youtu.be/s8kMrMi3J5g?t=0) Introduction and Overview
+# [00:00](https://youtu.be/s8kMrMi3J5g?t=0) Introduction and Overview
 
 Section Overview: In this section, the speaker introduces the topics to be covered in the tutorial, including Clockwork threads, randomness, zero copy, and a C battle on the Seven Seas program.
 
@@ -460,7 +460,7 @@ Section Overview: This section covers deploying and testing the zero copy exampl
 - Running tests reveals an error related to hitting the stack size limit, indicating a need for more stack space.
 
 Note: Due to limited information provided in this transcript, further details about zero copy and big accounts are not available.
-# [t=2042s] Account Size Limits
+# [34:02](https://youtu.be/s8kMrMi3J5g?t=2042) Account Size Limits
 
 Section Overview: In this section, the speaker discusses the size limits for Solana accounts and how they can be exceeded.
 
@@ -471,7 +471,7 @@ Section Overview: In this section, the speaker discusses the size limits for Sol
 - The anchor framework creates an account and performs a CPI in the background when interacting with Solana.
 - If an account exceeds the stack size limit, it can be boxed to allocate more space on the heap.
 
-# [t=2101s] Running Out of Stack Size
+# [35:01](https://youtu.be/s8kMrMi3J5g?t=2101) Running Out of Stack Size
 
 Section Overview: This section explains how running out of stack size can cause errors and demonstrates how to solve this issue.
 
@@ -482,7 +482,7 @@ Section Overview: This section explains how running out of stack size can cause 
 - The struct used for initialization has 10 kilobytes of data, including four public keys with each key having 32 kilobytes.
 - To solve this problem, boxing the account is recommended. Boxing involves creating a pointer on the stack that points to data stored on the heap, allowing for more space.
 
-# [t=2263s] Increasing Account Size
+# [37:43](https://youtu.be/s8kMrMi3J5g?t=2263) Increasing Account Size
 
 Section Overview: This section explains how to increase account sizes beyond their initial limits using anchors.
 
@@ -493,7 +493,7 @@ Section Overview: This section explains how to increase account sizes beyond the
 - The payer and real lock are specified as signers for reallocating accounts.
 - Increasing account sizes incurs additional costs, with a 10 kilobyte account costing around 0.07 Sol.
 
-# [t=2401s] Account Size Limitations
+# [40:01](https://youtu.be/s8kMrMi3J5g?t=2401) Account Size Limitations
 
 Section Overview: This section discusses the limitations of account sizes and potential issues when exceeding them.
 
@@ -567,7 +567,7 @@ Section Overview: The speaker provides an overview of various features implement
 - Killing enemy ships to gain Soul tokens and gold tokens.
 
 Note: Due to limitations on bullet points per section, not all features are covered. Please refer to the full transcript for complete details.
-# [t=2834s] Pirate NFT and Ship Upgrades
+# [47:14](https://youtu.be/s8kMrMi3J5g?t=2834) Pirate NFT and Ship Upgrades
 
 Section Overview: In this section, the speaker explains how Pirate NFTs work and how ship upgrades are implemented using PDAs (Program Derived Accounts) and SPL tokens.
 
@@ -588,7 +588,7 @@ Section Overview: In this section, the speaker explains how Pirate NFTs work and
 - Cannons obtained from Canon tokens in the player's token account are used to calculate extra damage.
 - The number of cannons determines the additional damage inflicted by the ship.
 
-# [t=2890s] Features: Auto Approve Wallet, Clockwork Weather Effects, NFT Avatars
+# [48:10](https://youtu.be/s8kMrMi3J5g?t=2890) Features: Auto Approve Wallet, Clockwork Weather Effects, NFT Avatars
 
 Section Overview: This section covers various features in the game including auto approve wallets, clockwork weather effects, and NFT avatars.
 
@@ -606,7 +606,7 @@ Section Overview: This section covers various features in the game including aut
 - Players can select an NFT as their character/avatar in the game.
 - The selected NFT avatar appears on their deployed ship.
 
-# [t=2959s] Animations via Game Action Account
+# [49:19](https://youtu.be/s8kMrMi3J5g?t=2959) Animations via Game Action Account
 
 Section Overview: This section explains how animations are implemented in the game using a game action account.
 
@@ -616,7 +616,7 @@ Section Overview: This section explains how animations are implemented in the ga
 - Whenever an action occurs in the game, a corresponding game action is created.
 - Examples of game actions include shooting and taking damage.
 
-# [t=3008s] Surprise Cthulhu Attack
+# [50:08](https://youtu.be/s8kMrMi3J5g?t=3008) Surprise Cthulhu Attack
 
 Section Overview: The speaker mentions a surprise Cthulhu attack that will be discussed further in the next session.
 
@@ -625,7 +625,7 @@ Section Overview: The speaker mentions a surprise Cthulhu attack that will be di
 - Players will be able to scan a QR code to trigger an attack by a big monster on the side of the map.
 - This attack will be facilitated through Solana patrons' action request.
 
-# [t=3048s] Auto Approve Wallet Options
+# [50:48](https://youtu.be/s8kMrMi3J5g?t=3048) Auto Approve Wallet Options
 
 Section Overview: This section explores different options for implementing auto approve wallets in the game.
 
@@ -641,7 +641,7 @@ Section Overview: This section explores different options for implementing auto 
 - Burner key pair: Similar to what was done in Seven Seas program.
 - Solflare wallet: Offers auto proof functionality per app but has security concerns.
 
-# [t=3129s] Seeking Solutions for Auto Approve Wallets
+# [52:09](https://youtu.be/s8kMrMi3J5g?t=3129) Seeking Solutions for Auto Approve Wallets
 
 Section Overview: The speaker discusses ongoing efforts and potential solutions for auto approve wallets.
 
@@ -650,7 +650,7 @@ Section Overview: The speaker discusses ongoing efforts and potential solutions 
 - Clockwork is working on potential solutions to facilitate auto approve wallets but it remains an unsolved problem.
 - Collaboration and contributions from developers are encouraged to improve this aspect of the ecosystem. 
 
-# [t=3173s] Conclusion and Farewell
+# [52:53](https://youtu.be/s8kMrMi3J5g?t=3173) Conclusion and Farewell
 
 Section Overview: The speaker concludes the session and invites participants to engage in a final activity.
 

@@ -1,9 +1,11 @@
 # Solana Foundation Bootcamp
 
 
-Want to understand Solana? This bootcamp breaks down Solana for developers that want to understand architecture, concepts, and build smart contracts.
+![](solana_logo.jpeg)
 
-[Solana Bootcamp - YouTube](https://www.youtube.com/playlist?list=PLilwLeBwGuK6NsYMPP_BlVkeQgff0NwvU)
+[**Solana Bootcamp - YouTube**](https://www.youtube.com/playlist?list=PLilwLeBwGuK6NsYMPP_BlVkeQgff0NwvU)
+
+Want to understand Solana? This bootcamp breaks down Solana for developers that want to understand architecture, concepts, and build smart contracts.
 
 1. [Introduction to Solana](https://github.com/Laugharne/solana_bootcamp/blob/main/Solana%20Bootcamp%20-%20Episode%201%20-%20Introduction%20to%20Solana.md)
 2. [Build Your First Program](https://github.com/Laugharne/solana_bootcamp/blob/main/Solana%20Bootcamp%20-%20Episode%202%20-%20Build%20Your%20First%20Program.md)

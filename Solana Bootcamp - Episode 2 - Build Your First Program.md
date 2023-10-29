@@ -1,124 +1,132 @@
-# [](https://youtu.be/EKvJ4ShVzNA?t=0) Introduction
+# [00:00](https://youtu.be/EKvJ4ShVzNA?t=0) Introduction
 
-Section Overview: In this section, the speaker introduces the Solana pirate boot camp and outlines what will be covered in the session.
+<!-- TOC -->
 
-## Solana Pirate Boot Camp
+- [00:00 Introduction](#0000-introduction)
+- [15:10 Leather Casters](#1510-leather-casters)
+	- [Leather Casters Features](#leather-casters-features)
+- [16:06 Dominari](#1606-dominari)
+	- [Dominari Features](#dominari-features)
+- [16:53 These Quest](#1653-these-quest)
+	- [These Quest Features](#these-quest-features)
+- [17:30 Conclusion](#1730-conclusion)
+	- [Tiny Adventure](#tiny-adventure)
+- [18:16 Solana Program Tutorial](#1816-solana-program-tutorial)
+	- [Getting Started with the Tutorial](#getting-started-with-the-tutorial)
+	- [Setting Up Development Environment](#setting-up-development-environment)
+	- [Building and Deploying the Program](#building-and-deploying-the-program)
+	- [Exploring Deployed Program Details](#exploring-deployed-program-details)
+	- [Running and Interacting with Deployed Program](#running-and-interacting-with-deployed-program)
+	- [JSON Representation of Program](#json-representation-of-program)
+- [23:43 Exploring Program Interactions](#2343-exploring-program-interactions)
+	- [Viewing Program Interactions on-chain](#viewing-program-interactions-on-chain)
+- [24:45 Understanding the Program Structure](#2445-understanding-the-program-structure)
+	- [Initializing the Account](#initializing-the-account)
+	- [Context and Accounts](#context-and-accounts)
+	- [Game Data Account](#game-data-account)
+	- [Multiplayer Game Development](#multiplayer-game-development)
+	- [Paying for Accounts and Space](#paying-for-accounts-and-space)
+	- [Move Left and Move Right Functions](#move-left-and-move-right-functions)
+- [29:33 Client-Side Implementation](#2933-client-side-implementation)
+	- [Derivation of Program Derived Address PDA](#derivation-of-program-derived-address-pda)
+	- [Fetching Game Data Account](#fetching-game-data-account)
+- [[30:54](https://youtu.be/EKvJ4ShVzNA?t=1854) Creating a New Game Data Account and Signers](#t1854s-creating-a-new-game-data-account-and-signers)
+- [[31:13](https://youtu.be/EKvJ4ShVzNA?t=1873) Transaction Stages and Confirmation](#t1873s-transaction-stages-and-confirmation)
+- [[31:35](https://youtu.be/EKvJ4ShVzNA?t=1895) Creating Instructions and Fetching Game Data](#t1895s-creating-instructions-and-fetching-game-data)
+- [[32:37](https://youtu.be/EKvJ4ShVzNA?t=1957) Changing Text and Building the Program](#t1957s-changing-text-and-building-the-program)
+- [[33:28](https://youtu.be/EKvJ4ShVzNA?t=2008) Questions and Solana as a Database](#t2008s-questions-and-solana-as-a-database)
+- [[33:52](https://youtu.be/EKvJ4ShVzNA?t=2032) Account Representation and Transaction Validity](#t2032s-account-representation-and-transaction-validity)
+- [[34:35](https://youtu.be/EKvJ4ShVzNA?t=2075) Multiple Instructions and Transaction Validity](#t2075s-multiple-instructions-and-transaction-validity)
+- [[35:17](https://youtu.be/EKvJ4ShVzNA?t=2117) Signers and Transaction Flow](#t2117s-signers-and-transaction-flow)
+- [[36:07](https://youtu.be/EKvJ4ShVzNA?t=2167) Interacting with Programs in Unity Client](#t2167s-interacting-with-programs-in-unity-client)
+- [37:01 Understanding the RPC Node and WebSocket Connection](#3701-understanding-the-rpc-node-and-websocket-connection)
+	- [Moving to the Right and Account Updates](#moving-to-the-right-and-account-updates)
+- [37:24 Reading and Writing Data with RPC Node](#3724-reading-and-writing-data-with-rpc-node)
+	- [Reading Data](#reading-data)
+	- [Writing Data](#writing-data)
+- [38:03 State Changes and Real-Time Updates](#3803-state-changes-and-real-time-updates)
+	- [Voting on State Changes](#voting-on-state-changes)
+	- [Real-Time Updates in Multiplayer Games](#real-time-updates-in-multiplayer-games)
+- [38:44 Implementing Position in a Multiplayer Game](#3844-implementing-position-in-a-multiplayer-game)
+	- [Adding X and Y Position](#adding-x-and-y-position)
+- [39:56 Introduction to Tiny Adventure 2](#3956-introduction-to-tiny-adventure-2)
+	- [Game Overview](#game-overview)
+- [40:27 Saving SOL in a PDA with Password Protection](#4027-saving-sol-in-a-pda-with-password-protection)
+	- [Collecting Chests](#collecting-chests)
+- [41:34 Opening Solana Playground for Tiny Adventure 2 Tutorial](#4134-opening-solana-playground-for-tiny-adventure-2-tutorial)
+	- [Accessing Solana Playground](#accessing-solana-playground)
+- [42:25 Deploying Tiny Adventure 2](#4225-deploying-tiny-adventure-2)
+	- [Deploying the Game](#deploying-the-game)
+- [43:14 Initializing and Transferring Soil](#4314-initializing-and-transferring-soil)
+	- [Initializing Level One](#initializing-level-one)
+	- [Transferring Soil into a PDA](#transferring-soil-into-a-pda)
+	- [Example Run](#example-run)
+	- [Transferring Soil Back](#transferring-soil-back)
+	- [Account Details](#account-details)
+- [48:48 Initializing Level One](#4848-initializing-level-one)
+	- [Initialization Process](#initialization-process)
+	- [Additional Features](#additional-features)
+- [49:29 Adding a Password and Error Handling](#4929-adding-a-password-and-error-handling)
+	- [Adding a Password](#adding-a-password)
+	- [Error Handling](#error-handling)
+- [50:32 Displaying Errors in the Client Application](#5032-displaying-errors-in-the-client-application)
+	- [Checking for Custom Errors](#checking-for-custom-errors)
+	- [Exporting IDL File](#exporting-idl-file)
+- [53:26 Overview of Tiny Adventure 2 and Saving Soul](#5326-overview-of-tiny-adventure-2-and-saving-soul)
+	- [Tiny Adventure 2 Flow](#tiny-adventure-2-flow)
+	- [Saving Soul in a PDA](#saving-soul-in-a-pda)
+- [54:04 Interacting with SPL Tokens](#5404-interacting-with-spl-tokens)
+	- [Understanding SPL Tokens](#understanding-spl-tokens)
+	- [Associated Token Accounts](#associated-token-accounts)
+	- [Creating Token Accounts](#creating-token-accounts)
+- [[56:26](https://youtu.be/EKvJ4ShVzNA?t=3386) Signing the PDA with the PDA for Transfer in the Program](#t3386s-signing-the-pda-with-the-pda-for-transfer-in-the-program)
+- [[56:46](https://youtu.be/EKvJ4ShVzNA?t=3406) Setting Up Local Development Environment](#t3406s-setting-up-local-development-environment)
+- [[57:09](https://youtu.be/EKvJ4ShVzNA?t=3429) Checking Out Repository and Building Anchor Program Locally](#t3429s-checking-out-repository-and-building-anchor-program-locally)
+- [[59:09](https://youtu.be/EKvJ4ShVzNA?t=3549) Deploying the Anchor Program](#t3549s-deploying-the-anchor-program)
+- [[01:01:09](https://youtu.be/EKvJ4ShVzNA?t=3669) Introduction to Client and Recommended Extensions](#t3669s-introduction-to-client-and-recommended-extensions)
+- [01:03:19 Local Setup and Tools](#010319-local-setup-and-tools)
+	- [Setting Up Tools](#setting-up-tools)
+	- [Configuring Analyzer and Formatting](#configuring-analyzer-and-formatting)
+	- [Running the Program Locally](#running-the-program-locally)
+	- [Running the JavaScript Client](#running-the-javascript-client)
+	- [Additional Resources](#additional-resources)
+- [01:09:55 Next.js Apps and API Integration](#010955-nextjs-apps-and-api-integration)
+	- [Integrating with APIs in Next.js](#integrating-with-apis-in-nextjs)
+- [01:10:20 Burner Key Pair and Environment Setup](#011020-burner-key-pair-and-environment-setup)
+	- [Burner Key Pair and Environment File](#burner-key-pair-and-environment-file)
+- [01:10:39 Interacting with Games via APIs](#011039-interacting-with-games-via-apis)
+	- [Interacting with Games without Login](#interacting-with-games-without-login)
+- [01:10:58 Transaction Fees and API Functionality](#011058-transaction-fees-and-api-functionality)
+	- [Transaction Fees and API Functionality](#transaction-fees-and-api-functionality)
+- [01:11:24 Backend Key Pair for Signing Transactions](#011124-backend-key-pair-for-signing-transactions)
+	- [Backend Key Pair for Signing Transactions](#backend-key-pair-for-signing-transactions)
+- [01:11:57 Unity Game Engine Introduction](#011157-unity-game-engine-introduction)
+	- [Introduction to Unity Game Engine](#introduction-to-unity-game-engine)
+- [01:12:38 Using Unity with Solana Game Starter Kits](#011238-using-unity-with-solana-game-starter-kits)
+	- [Using Unity with Solana Game Starter Kits](#using-unity-with-solana-game-starter-kits)
+- [01:13:24 Blockchain Games and Wallet Support](#011324-blockchain-games-and-wallet-support)
+	- [Blockchain Games and Wallet Support](#blockchain-games-and-wallet-support)
+- [01:14:30 Solnet Implementation and Code Generation Tool](#011430-solnet-implementation-and-code-generation-tool)
+	- [Solnet Implementation and Code Generation Tool](#solnet-implementation-and-code-generation-tool)
+- [01:15:23 Using the Code Generation Tool](#011523-using-the-code-generation-tool)
+	- [Using the Code Generation Tool](#using-the-code-generation-tool)
+- [01:16:25 Unity Setup for Tiny Adventure Game](#011625-unity-setup-for-tiny-adventure-game)
+	- [Unity Setup for Tiny Adventure Game](#unity-setup-for-tiny-adventure-game)
+- [01:17:22 Understanding the Game Data Account](#011722-understanding-the-game-data-account)
+	- [Game Data Account Details](#game-data-account-details)
+- [01:17:49 Simplified Instruction Creation](#011749-simplified-instruction-creation)
+	- [Creating Instructions](#creating-instructions)
+- [01:18:12 Manual Transaction Creation](#011812-manual-transaction-creation)
+	- [Manual Transaction Process](#manual-transaction-process)
+- [01:18:30 Unity Implementation Example](#011830-unity-implementation-example)
+	- [Unity Implementation Steps](#unity-implementation-steps)
+- [01:18:48 Homework and Further Resources](#011848-homework-and-further-resources)
+	- [Homework and Resources](#homework-and-resources)
+- [01:19:10 Future Topics and Conclusion](#011910-future-topics-and-conclusion)
+	- [Future Topics](#future-topics)
+	- [Conclusion](#conclusion)
 
-- The boot camp focuses on learning about Solana, the programming model, and writing programs using Solana anchor.
-- Participants will learn how to save and send soul (Solana's native cryptocurrency) within a program.
-- Interacting with SPL tokens (Solana Programmable Tokens) in a program will also be covered.
-- A complete local setup will be demonstrated, including installing necessary tools, deploying a program, and creating a JavaScript client using Next.js and the Solana wallet adapter.
-
-# [01:16](https://youtu.be/EKvJ4ShVzNA?t=76) What is Solana?
-
-Section Overview: This section provides an overview of Solana as a blockchain platform for building games.
-
-## Introduction to Solana
-
-- Solana is a blockchain platform with fast confirmation times and low fees.
-- It functions as a large database where different programs can change data.
-- Games can be built on top of Solana due to its capabilities as a blockchain platform.
-
-# [02:22](https://youtu.be/EKvJ4ShVzNA?t=142) Playing the Seven Seas Game
-
-Section Overview: Participants are invited to play the Seven Seas game using their minted pirate ships from the previous day.
-
-## Playing the Game
-
-- Open the provided URL (play.d7cs/index.html) to access the web-based version of the game written in Unity.
-- Log in with any wallet (e.g., Sold Flare).
-- Players can control their pirate ship, engage in battles with other players' ships, collect chests for rewards, and use pirate coins to upgrade their ships.
-- Pirate coins can be staked for more rewards or traded for rum and cannons to enhance ship damage and health.
-
-# [03:19](https://youtu.be/EKvJ4ShVzNA?t=199) The Seven Seas Program
-
-Section Overview: This section explains the Seven Seas program, a real-time multiplayer PvP on-chain game built using Anchor.
-
-## Overview of the Seven Seas Program
-
-- The Seven Seas program is written in Anchor and serves as a real-time multiplayer PvP on-chain game.
-- Players pay soul to deploy their ships and spawn chests containing soul and gold pirate SPL tokens.
-- Destroying other players' ships or collecting chests allows players to obtain the soul and gold tokens.
-- A websocket connection enables quick updates from the Solana blockchain for all clients connected to the game.
-
-# [04:39](https://youtu.be/EKvJ4ShVzNA?t=279) Games on Solana
-
-Section Overview: This section highlights the advantages of building games on Solana.
-
-## Advantages of Building Games on Solana
-
-- Transaction fees on Solana are low (5 lamports or 0.0005 soul) and confirm within 400 milliseconds.
-- Blockchain can be used to reward players with SPL tokens, in-game currency, or NFTs.
-- NFTs can serve as token gates, allowing only owners of specific NFTs to access certain games.
-- Game data, including ship stats and game state, can be securely stored on the blockchain indefinitely.
-
-Note: Timestamps were not available for some sections.
-# [t=389s] Seven Seas Program and Unity Client
-
-Section Overview: The Seven Seas program has a Unity client and a JavaScript client. The Unity client allows other people to build different clients for the program, change graphics, or build games with it. The JavaScript client will be discussed later.
-
-- The Seven Seas program is built on the blockchain.
-- Other people can build different clients for the program.
-- Graphics can be changed or new games can be built using the program.
-- The Unity client is one of the available options.
-
-# [t=406s] Deploying Games and Trading Items
-
-Section Overview: Games created with the Seven Seas program can be deployed on the blockchain. Players can trade items within these games on marketplaces such as Magic Eden or Tensor. Additionally, players can use their digital identity (wallet) across multiple games.
-
-- Games created with the Seven Seas program can be deployed on the blockchain.
-- Players can trade items from these games on various marketplaces.
-- Digital identity (wallet) allows players to use their progress and data across multiple games.
-
-# [t=426s] Benefits of Solana for Game Developers
-
-Section Overview: Solana offers several advantages for game developers. It is free to use, as players cover transaction fees. Authentication is simplified as developers do not need to store email addresses or passwords. Solana also replaces traditional payment providers, reducing integration complexity and saving App Store fees.
-
-- Solana is free for developers as players cover transaction fees.
-- Authentication is simplified as no email addresses or passwords need to be stored.
-- Solana replaces traditional payment providers like PayPal.
-- Integration with Solana saves App Store fees.
-
-# [t=557s] Engaged Target Audience and Regulations
-
-Section Overview: Building crypto-based games on platforms like Solana attracts an engaged target audience that embraces new technologies. However, regulations regarding tokens and customer information (KYC) vary by country. Real-time games may face challenges due to latency, but turn-based games or deterministic games can be built on the blockchain.
-
-- Building crypto-based games attracts an engaged target audience.
-- Regulations regarding tokens and customer information (KYC) vary by country.
-- Real-time games may face challenges due to latency, but turn-based or deterministic games are feasible.
-
-# [t=694s] Example Games and Opportunities
-
-Section Overview: Several example games were mentioned, including Seven Seas and Star Atlas. The speaker encourages game developers to explore opportunities in the Solana ecosystem, such as participating in the upcoming Game Jam event.
-
-- Example games mentioned include Seven Seas and Star Atlas.
-- Game developers are encouraged to explore opportunities in the Solana ecosystem.
-- The upcoming Game Jam event is recommended for game developers interested in crypto gaming.
-# [12:13](https://youtu.be/EKvJ4ShVzNA?t=733) Star Atlas Demo
-
-Section Overview: The speaker discusses the excitement surrounding Star Atlas, a game that recently released its first demo. The demo allows players to move ships to different positions using their wallets. There are already multiple ships on the map, and Star Atlas transactions have accounted for three percent of all Solana transactions.
-
-## Star Atlas Features
-
-- Players can use their wallets to move ships to different positions on the map. [12:13](https://youtu.be/EKvJ4ShVzNA?t=733)
-- The number in the bottom right corner indicates how many ships are on a specific tile. [12:31](https://youtu.be/EKvJ4ShVzNA?t=751)
-- There has been significant interest in Star Atlas, with its transactions accounting for three percent of all Solana transactions for a few days. [12:31](https://youtu.be/EKvJ4ShVzNA?t=751)
-
-# [13:35](https://youtu.be/EKvJ4ShVzNA?t=815) Solana Plays Pokemon
-
-Section Overview: The speaker introduces "Solana Plays Pokemon," a game where players can vote on moves and navigate through a Pokemon-inspired world. This game was built by Solidity and gained popularity similar to Twitch Plays Pokemon.
-
-## Solana Plays Pokemon Features
-
-- "Solana Plays Pokemon" is a game where players can vote on moves and navigate through a Pokemon-inspired world. [13:35](https://youtu.be/EKvJ4ShVzNA?t=815)
-- Solidity built this game, which gained popularity similar to Twitch Plays Pokemon. [13:53](https://youtu.be/EKvJ4ShVzNA?t=833)
-
-# [14:27](https://youtu.be/EKvJ4ShVzNA?t=867) Chrono Kingdom
-
-Section Overview: The speaker introduces Chrono Kingdom, an unchained game where players build cities, produce resources, create units, and engage in battles with other cities.
-
-## Chrono Kingdom Features
-
+<!-- /TOC -->
 - In Chrono Kingdom, players build cities, produce resources, create units, and engage in battles with other cities. [14:27](https://youtu.be/EKvJ4ShVzNA?t=867)
 - The game follows a similar concept to Tribal Wars or old browser games. [14:51](https://youtu.be/EKvJ4ShVzNA?t=891)
 
@@ -262,7 +270,7 @@ Section Overview: This section focuses on client-side implementation using deriv
 - RPC node is called to retrieve the data of the specified account.
 
 Note: The summary has been created based on the provided transcript.
-# [t=1854s] Creating a New Game Data Account and Signers
+# [30:54](https://youtu.be/EKvJ4ShVzNA?t=1854) Creating a New Game Data Account and Signers
 
 Section Overview: In order to perform transactions on Solana, a new game data account needs to be created. Every transaction requires a signer, which consists of a private and public key. The private key is needed to sign for changing data. Transactions are sent to the RPC node for propagation through the network and changing the state.
 
@@ -272,7 +280,7 @@ Section Overview: In order to perform transactions on Solana, a new game data ac
 - The private key is needed to sign for changing data.
 - Transactions are sent to the RPC node for propagation through the network and changing the state.
 
-# [t=1873s] Transaction Stages and Confirmation
+# [31:13](https://youtu.be/EKvJ4ShVzNA?t=1873) Transaction Stages and Confirmation
 
 Section Overview: Transactions go through multiple stages, starting with being processed as soon as data changes in one of the validators. Once confirmed, it becomes non-revertible. Finalized stage ensures complete finality after 31 confirmations.
 
@@ -281,7 +289,7 @@ Section Overview: Transactions go through multiple stages, starting with being p
 - Confirmed stage indicates that the transaction will make it into the state.
 - Finalized stage provides complete finality after 31 confirmations.
 
-# [t=1895s] Creating Instructions and Fetching Game Data
+# [31:35](https://youtu.be/EKvJ4ShVzNA?t=1895) Creating Instructions and Fetching Game Data
 
 Section Overview: After confirming a transaction, instructions can be created and executed. In this case, the "move left" method is called with the game data account. The game data account is then fetched to retrieve updated information.
 
@@ -290,7 +298,7 @@ Section Overview: After confirming a transaction, instructions can be created an
 - Send instructions to RPC node for confirmation.
 - Fetch game data account after executing instructions.
 
-# [t=1957s] Changing Text and Building the Program
+# [32:37](https://youtu.be/EKvJ4ShVzNA?t=1957) Changing Text and Building the Program
 
 Section Overview: To interact with the program, text can be changed and a story can be written. After modifying the text, the program needs to be built and deployed. The data and program ID are then sent for interaction within the Unity client.
 
@@ -298,7 +306,7 @@ Section Overview: To interact with the program, text can be changed and a story 
 - Build and deploy the program.
 - Send data and program ID for interaction in Unity client.
 
-# [t=2008s] Questions and Solana as a Database
+# [33:28](https://youtu.be/EKvJ4ShVzNA?t=2008) Questions and Solana as a Database
 
 Section Overview: Questions from participants are addressed. Solana is described as a big database where everything is an account with a unique address. Accounts consist of private and public keys, allowing only owners or authorized signers to make changes. Transactions consist of instructions, recent blockage ensures transaction validity, and v-payer pays for transaction fees.
 
@@ -310,7 +318,7 @@ Section Overview: Questions from participants are addressed. Solana is described
 - Recent blockage ensures transaction validity.
 - V-payer pays for transaction fees.
 
-# [t=2032s] Account Representation and Transaction Validity
+# [33:52](https://youtu.be/EKvJ4ShVzNA?t=2032) Account Representation and Transaction Validity
 
 Section Overview: Account addresses in Solana are represented by 32 kilobyte strings using Base 58 encoding. Each wallet has a private-public key pair, allowing only owners to make changes to their accounts. Executable accounts like deployed programs can also be changed by authorized signers. Transactions require recent blockage for validation within a certain time frame.
 
@@ -320,7 +328,7 @@ Section Overview: Account addresses in Solana are represented by 32 kilobyte str
 - Executable accounts can also be changed by authorized signers.
 - Transactions require recent blockage for validation within a certain time frame.
 
-# [t=2075s] Multiple Instructions and Transaction Validity
+# [34:35](https://youtu.be/EKvJ4ShVzNA?t=2075) Multiple Instructions and Transaction Validity
 
 Section Overview: Transactions can consist of multiple instructions, allowing for multiple changes to be made simultaneously. Recent blockage is crucial for validators to determine transaction validity within a specific time frame.
 
@@ -328,7 +336,7 @@ Section Overview: Transactions can consist of multiple instructions, allowing fo
 - Multiple changes can be made simultaneously.
 - Recent blockage is crucial for transaction validity.
 
-# [t=2117s] Signers and Transaction Flow
+# [35:17](https://youtu.be/EKvJ4ShVzNA?t=2117) Signers and Transaction Flow
 
 Section Overview: Signers play a role in transaction validation. Additional signers can be added for co-signing or multi-signature transactions. A graph example illustrates the relationship between game data accounts, instructions, and the resulting game state.
 
@@ -336,7 +344,7 @@ Section Overview: Signers play a role in transaction validation. Additional sign
 - Additional signers can be added for co-signing or multi-signature transactions.
 - A graph example illustrates the relationship between game data accounts, instructions, and the resulting game state.
 
-# [t=2167s] Interacting with Programs in Unity Client
+# [36:07](https://youtu.be/EKvJ4ShVzNA?t=2167) Interacting with Programs in Unity Client
 
 Section Overview: The Unity client allows interaction with programs deployed on Solana. Changes made through interactions in Playground are reflected directly in the Unity client.
 
@@ -546,14 +554,14 @@ Section Overview: This section briefly discusses interacting with SPL tokens wit
 - Tokens can then be transferred in and out of this account using transfer instructions within an Anchor CPI context.
 
 Note: The speaker mentions that more detailed information on interacting with SPL tokens will be covered in a future session with Jacob regarding staking tokens.
-# [t=3386s] Signing the PDA with the PDA for Transfer in the Program
+# [56:26](https://youtu.be/EKvJ4ShVzNA?t=3386) Signing the PDA with the PDA for Transfer in the Program
 
 Section Overview: This section explains how to sign the PDA (Program Derived Address) with the PDA for transfer in the program.
 
 - To sign the PDA, use `CPI.context.new_signer()`.
 - In this case, the signup would be for these seats: token account owner, PDA, and bump.
 
-# [t=3406s] Setting Up Local Development Environment
+# [56:46](https://youtu.be/EKvJ4ShVzNA?t=3406) Setting Up Local Development Environment
 
 Section Overview: This section provides instructions on setting up a local development environment.
 
@@ -566,7 +574,7 @@ Section Overview: This section provides instructions on setting up a local devel
 - Install Anchor Version Manager (AVM) by copying and running a specific command in your terminal.
 - Verify installations by checking versions of Anchor (`anchor --version`), Solana (`solana --version`), and Rust (`rustc --version`).
 
-# [t=3429s] Checking Out Repository and Building Anchor Program Locally
+# [57:09](https://youtu.be/EKvJ4ShVzNA?t=3429) Checking Out Repository and Building Anchor Program Locally
 
 Section Overview: This section explains how to check out a repository and build an Anchor program locally.
 
@@ -578,7 +586,7 @@ Section Overview: This section explains how to check out a repository and build 
   - Use `solana address` to get your wallet address.
   - Transfer SOL into your wallet using `solana airdrop`.
 
-# [t=3549s] Deploying the Anchor Program
+# [59:09](https://youtu.be/EKvJ4ShVzNA?t=3549) Deploying the Anchor Program
 
 Section Overview: This section explains how to deploy the Anchor program.
 
@@ -586,7 +594,7 @@ Section Overview: This section explains how to deploy the Anchor program.
 - Deploy the program using the defined program ID.
 - This step is similar to what was done in the playground, but now we are deploying it locally.
 
-# [t=3669s] Introduction to Client and Recommended Extensions
+# [01:01:09](https://youtu.be/EKvJ4ShVzNA?t=3669) Introduction to Client and Recommended Extensions
 
 Section Overview: This section introduces the client for the Anchor program and recommends useful extensions.
 

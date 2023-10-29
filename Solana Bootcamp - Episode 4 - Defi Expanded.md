@@ -1,4 +1,117 @@
-# [](https://youtu.be/GyDSzUdv4u8?t=0) Introduction to Pirate Themed Boot Camp
+
+<!-- TOC -->
+
+- [00:00 Introduction to Pirate Themed Boot Camp](#0000-introduction-to-pirate-themed-boot-camp)
+	- [Pirate Themed Boot Camp](#pirate-themed-boot-camp)
+- [00:27 Understanding Decentralized Exchanges DEX](#0027-understanding-decentralized-exchanges-dex)
+	- [Decentralized Finance DeFi](#decentralized-finance-defi)
+	- [Decentralized Exchanges DEX](#decentralized-exchanges-dex)
+- [02:08 Constant Product Algorithm in DEX](#0208-constant-product-algorithm-in-dex)
+	- [Constant Product Algorithm](#constant-product-algorithm)
+- [03:27 Example of a Decentralized Exchange](#0327-example-of-a-decentralized-exchange)
+	- [Token Swapping in DEX](#token-swapping-in-dex)
+- [05:21 Conclusion](#0521-conclusion)
+	- [Key Takeaways](#key-takeaways)
+- [06:03 Understanding Pools and the Constant Product Algorithm](#0603-understanding-pools-and-the-constant-product-algorithm)
+	- [Pools and Assets](#pools-and-assets)
+	- [Nominal Quantity](#nominal-quantity)
+	- [Swapping Assets](#swapping-assets)
+	- [Constant Product Algorithm](#constant-product-algorithm)
+- [08:56 Determining Asset Quantities in Pool Swaps](#0856-determining-asset-quantities-in-pool-swaps)
+	- [Equation Manipulation](#equation-manipulation)
+	- [Balances in the Pool](#balances-in-the-pool)
+	- [Implementation in Smart Contracts](#implementation-in-smart-contracts)
+- [11:43 Conclusion and Application](#1143-conclusion-and-application)
+	- [Setting Up the Algorithm](#setting-up-the-algorithm)
+	- [Coding Implementation](#coding-implementation)
+	- [Importance of Mathematics](#importance-of-mathematics)
+- [12:30 Understanding the Equation and Program Structure](#1230-understanding-the-equation-and-program-structure)
+	- [Equation Breakdown](#equation-breakdown)
+- [12:49 Repository Setup and Program Overview](#1249-repository-setup-and-program-overview)
+	- [Repository Structure](#repository-structure)
+- [13:07 Working on Swap Program Initialization](#1307-working-on-swap-program-initialization)
+	- [Swap Program Instructions](#swap-program-instructions)
+- [14:30 Setting Up Pool State](#1430-setting-up-pool-state)
+	- [Pool State Setup](#pool-state-setup)
+- [15:09 Associated Token Accounts and Pool Configuration](#1509-associated-token-accounts-and-pool-configuration)
+	- [Associated Token Accounts](#associated-token-accounts)
+- [16:30 Custom Implementation Example and Future Discussions](#1630-custom-implementation-example-and-future-discussions)
+	- [Custom Implementation Example](#custom-implementation-example)
+- [17:06 Instruction: Create Pool](#1706-instruction-create-pool)
+	- [Creating Pool Account](#creating-pool-account)
+- [18:25 Creating a New Account for the Liquidity Pool](#1825-creating-a-new-account-for-the-liquidity-pool)
+	- [Setting up the Seed and Deriving the Address](#setting-up-the-seed-and-deriving-the-address)
+	- [Signing and Initializing the Pool](#signing-and-initializing-the-pool)
+- [18:47 Funding the Liquidity Pool](#1847-funding-the-liquidity-pool)
+	- [Fund Instruction Implementation](#fund-instruction-implementation)
+	- [Creating Accounts](#creating-accounts)
+- [20:03 Exploring pool.fund Function](#2003-exploring-poolfund-function)
+	- [Deposit Tuple](#deposit-tuple)
+	- [Implementing Traits for Liquidity Pool Account Type](#implementing-traits-for-liquidity-pool-account-type)
+- [24:26 Adding Asset to the Pool](#2426-adding-asset-to-the-pool)
+	- [Adding Asset](#adding-asset)
+- [28:09 Processing Transfer](#2809-processing-transfer)
+	- [Processing Transfer](#processing-transfer)
+- [29:17 Swap Instruction](#2917-swap-instruction)
+	- [Swap Instruction](#swap-instruction)
+- [30:41 Token Accounts and Constraints](#3041-token-accounts-and-constraints)
+	- [Token Accounts and Constraints](#token-accounts-and-constraints)
+- [31:00 Mint and Token Account Validation](#3100-mint-and-token-account-validation)
+	- [Mint and Token Account Validation](#mint-and-token-account-validation)
+- [31:19 Additional Token Accounts](#3119-additional-token-accounts)
+	- [Additional Token Accounts](#additional-token-accounts)
+- [31:40 Process Swap Function](#3140-process-swap-function)
+	- [Process Swap Function](#process-swap-function)
+- [32:21 Constant Product Algorithm](#3221-constant-product-algorithm)
+	- [Constant Product Algorithm](#constant-product-algorithm)
+- [34:03 Implementation Details](#3403-implementation-details)
+	- [Implementation Details](#implementation-details)
+- [34:50 Normalizing Balances with Decimal Places](#3450-normalizing-balances-with-decimal-places)
+	- [Normalizing Balances with Decimal Places](#normalizing-balances-with-decimal-places)
+- [36:21 Final Checks and Conclusion](#3621-final-checks-and-conclusion)
+	- [Final Checks and Conclusion](#final-checks-and-conclusion)
+- [37:09 Overview of the Readme and Tests](#3709-overview-of-the-readme-and-tests)
+	- [Deploying and Testing](#deploying-and-testing)
+- [38:54 Changing Program and Deploying](#3854-changing-program-and-deploying)
+	- [Changing Program](#changing-program)
+	- [Interacting with Deployed Program](#interacting-with-deployed-program)
+- [40:40 Setting Up Tests](#4040-setting-up-tests)
+	- [Uploading JSON Metadata](#uploading-json-metadata)
+	- [Creating Assets](#creating-assets)
+- [43:22 Creating Assets and Setting Metadata Flag](#4322-creating-assets-and-setting-metadata-flag)
+	- [Creating Assets and Setting Metadata Flag](#creating-assets-and-setting-metadata-flag)
+- [43:38 Checking Program Deployment](#4338-checking-program-deployment)
+	- [Checking Program Deployment](#checking-program-deployment)
+- [44:04 Initializing Liquidity Pool and Running Tests](#4404-initializing-liquidity-pool-and-running-tests)
+	- [Initializing Liquidity Pool and Running Tests](#initializing-liquidity-pool-and-running-tests)
+- [45:54 Understanding Swap Function and Liquidity Pools](#4554-understanding-swap-function-and-liquidity-pools)
+	- [Understanding Swap Function and Liquidity Pools](#understanding-swap-function-and-liquidity-pools)
+- [46:35 Running Tests, Observing Log Statements, and Checking UI](#4635-running-tests-observing-log-statements-and-checking-ui)
+	- [Running Tests, Observing Log Statements, and Checking UI](#running-tests-observing-log-statements-and-checking-ui)
+- [48:01 Exploring Different Swaps in Liquidity Pool](#4801-exploring-different-swaps-in-liquidity-pool)
+	- [Exploring Different Swaps in Liquidity Pool](#exploring-different-swaps-in-liquidity-pool)
+- [Conclusion](#conclusion)
+- [49:22 Understanding the Calculation of Change in K](#4922-understanding-the-calculation-of-change-in-k)
+	- [Calculation of Change in K](#calculation-of-change-in-k)
+- [49:42 Testing and Verifying Swap Program](#4942-testing-and-verifying-swap-program)
+	- [Testing Swap Program](#testing-swap-program)
+	- [Verifying Test Results](#verifying-test-results)
+- [50:01 Confirming Proper Asset Handling](#5001-confirming-proper-asset-handling)
+	- [Verification Process](#verification-process)
+- [50:26 Exploring Additional Swaps](#5026-exploring-additional-swaps)
+	- [Attempting Compass for Gold Swap](#attempting-compass-for-gold-swap)
+- [50:48 Successful Swap of Cannons for Cannonballs](#5048-successful-swap-of-cannons-for-cannonballs)
+	- [Swapping Cannons for Cannonballs](#swapping-cannons-for-cannonballs)
+- [51:58 Concluding Remarks on Pirate Swap](#5158-concluding-remarks-on-pirate-swap)
+	- [Key Takeaways](#key-takeaways)
+- [53:27 Closing Remarks](#5327-closing-remarks)
+	- [Final Words](#final-words)
+
+<!-- /TOC -->
+
+
+# [00:00](https://youtu.be/GyDSzUdv4u8?t=0) Introduction to Pirate Themed Boot Camp
+
 
 Section Overview: In this section, Joe introduces the pirate-themed boot camp and discusses the focus of Day 4, which is the swap program.
 
@@ -179,7 +292,7 @@ Section Overview: This section focuses on the "create pool" instruction and prov
 - Code snippets demonstrate how this account is created using anchor, initializing it for the first time, assigning associated token accounts, and funding it with liquidity.
 
 Note: Please note that these summaries are based solely on the provided transcript and may not fully capture the complete content of the video.
-# [t=1105s] Creating a New Account for the Liquidity Pool
+# [18:25](https://youtu.be/GyDSzUdv4u8?t=1105) Creating a New Account for the Liquidity Pool
 
 Section Overview: In this section, the process of creating a new account for the liquidity pool is explained.
 
@@ -192,7 +305,7 @@ Section Overview: In this section, the process of creating a new account for the
 - The system program is used in this step.
 - The liquidity pool is initialized with empty data and a bump seed.
 
-# [t=1127s] Funding the Liquidity Pool
+# [18:47](https://youtu.be/GyDSzUdv4u8?t=1127) Funding the Liquidity Pool
 
 Section Overview: This section focuses on funding the liquidity pool by implementing an instruction to transfer and create accounts.
 
@@ -205,7 +318,7 @@ Section Overview: This section focuses on funding the liquidity pool by implemen
 - Accounts such as liquidity pools and associated token accounts need to be created before funding.
 - Initialization of these accounts is done using specific instructions.
 
-# [t=1203s] Exploring `pool.fund` Function
+# [20:03](https://youtu.be/GyDSzUdv4u8?t=1203) Exploring `pool.fund` Function
 
 Section Overview: This section dives into the details of `pool.fund` function implementation.
 

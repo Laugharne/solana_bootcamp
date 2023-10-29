@@ -1,4 +1,4 @@
-# [](https://youtu.be/v88C0jL8pTQ?t=0) Introduction to Solana Pay and its Use Cases
+# [00:00](https://youtu.be/v88C0jL8pTQ?t=0) Introduction to Solana Pay and its Use Cases
 
 Section Overview: In this section, we learn about Solana Pay and its various use cases beyond payments. We also explore how transaction requests can be used to interact with the Seven Seas game.
 
